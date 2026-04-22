@@ -177,6 +177,7 @@ input,textarea,select{font:inherit;color:inherit;}
 .book-section{background:var(--bg);}
 .book-inner{display:grid;grid-template-columns:1fr 1.15fr;gap:var(--s16);align-items:start;}
 .book-p{font-size:var(--base);color:var(--muted);line-height:1.78;max-width:46ch;margin-bottom:var(--s6);}
+.book-direct-btn{margin-bottom:var(--s8);}
 .book-reassurance{display:flex;flex-direction:column;gap:var(--s3);margin-bottom:var(--s8);}
 .br-item{display:flex;align-items:center;gap:var(--s3);font-size:var(--sm);font-weight:500;color:var(--text-soft);}
 .guardian-footer-brand{display:flex;align-items:center;gap:var(--s3);padding-top:var(--s6);border-top:1px solid var(--divider);}
