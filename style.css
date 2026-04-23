@@ -90,8 +90,8 @@ input,textarea,select{font:inherit;color:inherit;}
 .hero-inner{max-width:680px;margin:0 auto;padding:clamp(80px,11vw,130px) var(--s5) clamp(60px,8vw,100px);position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
 
 .hero-heading{font-size:clamp(2.4rem,1rem + 4.5vw,4.4rem);font-weight:800;line-height:1.05;margin-bottom:var(--s5);letter-spacing:-0.045em;color:var(--text);}
-.hero-accent{color:#e6ac00;}
-.hero-strike{color:var(--faint);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(90,96,112,0.5);}
+.hero-accent{color:var(--orange);}
+.hero-strike{color:#e53e3e;text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(229,62,62,0.6);}
 .hero-sub{font-size:var(--base);color:var(--muted);line-height:1.65;margin-bottom:var(--s8);font-weight:400;}
 .hero-ctas{display:flex;gap:var(--s4);flex-wrap:wrap;justify-content:center;margin-bottom:var(--s8);}
 
