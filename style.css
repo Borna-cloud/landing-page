@@ -64,9 +64,9 @@ input,textarea,select{font:inherit;color:inherit;}
 .nav-inner{max-width:var(--max);margin:0 auto;padding:var(--s3) var(--s5);display:flex;align-items:center;justify-content:space-between;gap:var(--s4);}
 .logo-wrap{display:flex;align-items:center;}
 .guardian-logo{height:36px;width:auto;object-fit:contain;}
-.nav-links{display:flex;align-items:center;gap:var(--s6);}
-.nav-links a:not(.btn){font-size:var(--sm);font-weight:600;color:var(--muted);transition:color var(--ease);}
-.nav-links a:not(.btn):hover{color:var(--text);}
+.nav-links{display:flex;align-items:center;gap:var(--s3);}
+.nav-links a:not(.btn){font-size:var(--sm);font-weight:600;color:#fff;background:var(--orange);padding:6px 14px;border-radius:var(--r-full);transition:background var(--ease),transform var(--ease);}
+.nav-links a:not(.btn):hover{background:var(--orange-dark);transform:translateY(-1px);}
 .nav-toggle{display:none;color:var(--text);padding:var(--s1);}
 .mobile-menu{display:none;flex-direction:column;padding:var(--s4) var(--s5) var(--s6);gap:var(--s2);border-top:1px solid var(--divider);background:#fff;}
 .mobile-menu.open{display:flex;}
