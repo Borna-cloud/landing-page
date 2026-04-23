@@ -87,7 +87,7 @@ input,textarea,select{font:inherit;color:inherit;}
 /* HERO */
 .hero{background:#F7F5F1;color:var(--text);position:relative;overflow:hidden;min-height:640px;border-bottom:1px solid var(--divider);}
 
-.hero-inner{max-width:620px;margin:0 auto;padding:clamp(80px,11vw,130px) var(--s5) clamp(60px,8vw,100px);position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-inner{max-width:680px;margin:0 auto;padding:clamp(80px,11vw,130px) var(--s5) clamp(60px,8vw,100px);position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;}
 
 .hero-heading{font-size:clamp(2.4rem,1rem + 4.5vw,4.4rem);font-weight:800;line-height:1.05;margin-bottom:var(--s5);letter-spacing:-0.045em;color:var(--text);}
 .hero-accent{color:var(--orange);}
