@@ -307,13 +307,14 @@ input,textarea,select{font:inherit;color:inherit;}
   .nav-links{display:none;}
   .nav-toggle{display:block;}
   .guardian-logo{height:40px;}
+  .hero{min-height:0;}
 
   /* Mobile hero background colour blobs */
-  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(232,119,34,0.18) 0%,transparent 70%);pointer-events:none;z-index:0;}
-  .hero::after{content:'';position:absolute;bottom:-40px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(10,90,140,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .hero::before{content:'';position:absolute;top:-40px;right:-40px;width:320px;height:320px;background:radial-gradient(circle,rgba(232,119,34,0.32) 0%,transparent 65%);pointer-events:none;z-index:0;}
+  .hero::after{content:'';position:absolute;bottom:-30px;left:-50px;width:280px;height:280px;background:radial-gradient(circle,rgba(10,90,140,0.22) 0%,transparent 65%);pointer-events:none;z-index:0;}
 
   /* Hero layout — left-aligned, dominant heading */
-  .hero-inner{padding:60px var(--s5) 48px;align-items:flex-start;text-align:left;}
+  .hero-inner{padding:36px var(--s5) 32px;align-items:flex-start;text-align:left;}
   .hero-heading{font-size:clamp(2.5rem,9.5vw,3.2rem);margin-bottom:var(--s3);line-height:1.08;}
   .hero-sub{font-size:0.9rem;margin-bottom:var(--s5);max-width:320px;}
   .hero-ctas{flex-direction:column;gap:var(--s3);width:100%;align-items:flex-start;}
