@@ -306,14 +306,19 @@ input,textarea,select{font:inherit;color:inherit;}
 @media(max-width:600px){
   .nav-links{display:none;}
   .nav-toggle{display:block;}
+  .guardian-logo{height:40px;}
 
-  /* Hero — Wealthsimple-style: dominant heading, single primary CTA */
-  .hero-inner{padding-top:clamp(48px,10vw,80px);padding-bottom:clamp(40px,8vw,64px);}
-  .hero-heading{font-size:clamp(2.6rem,10vw,3.4rem);margin-bottom:var(--s4);}
-  .hero-sub{font-size:0.92rem;margin-bottom:var(--s6);}
-  .hero-ctas{flex-direction:column;gap:var(--s3);width:100%;}
-  .hero-ctas .btn-dark{width:100%;justify-content:center;padding:1rem;font-size:1rem;border-radius:14px;}
-  .hero-ctas .btn-ghost{background:none;border:none;color:var(--muted);font-size:0.85rem;padding:var(--s2) 0;text-decoration:underline;text-underline-offset:3px;width:100%;justify-content:center;}
+  /* Mobile hero background colour blobs */
+  .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(232,119,34,0.18) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .hero::after{content:'';position:absolute;bottom:-40px;left:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(10,90,140,0.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
+
+  /* Hero layout — left-aligned, dominant heading */
+  .hero-inner{padding:60px var(--s5) 48px;align-items:flex-start;text-align:left;}
+  .hero-heading{font-size:clamp(2.5rem,9.5vw,3.2rem);margin-bottom:var(--s3);line-height:1.08;}
+  .hero-sub{font-size:0.9rem;margin-bottom:var(--s5);max-width:320px;}
+  .hero-ctas{flex-direction:column;gap:var(--s3);width:100%;align-items:flex-start;}
+  .hero-ctas .btn-dark{width:100%;justify-content:center;padding:1rem 1.5rem;font-size:1rem;border-radius:14px;}
+  .hero-ctas .btn-ghost{background:none;border:none;color:var(--muted);font-size:0.85rem;padding:var(--s1) 0;text-decoration:underline;text-underline-offset:4px;width:auto;}
   .hero-ctas .btn-ghost:hover{background:none;color:var(--text);}
   .hero-trust{display:none;}
 
