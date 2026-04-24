@@ -91,7 +91,7 @@ input,textarea,select{font:inherit;color:inherit;}
 
 .hero-heading{font-size:clamp(2.4rem,1rem + 4.5vw,4.4rem);font-weight:800;line-height:1.05;margin-bottom:var(--s5);letter-spacing:-0.045em;color:var(--text);}
 .hero-accent{color:var(--orange);}
-.hero-strike{color:#e53e3e;text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(229,62,62,0.6);}
+.hero-strike{color:var(--text);text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(21,25,31,0.5);}
 .hero-sub{font-size:var(--base);color:var(--muted);line-height:1.65;margin-bottom:var(--s8);font-weight:400;}
 .hero-ctas{display:flex;gap:var(--s4);flex-wrap:wrap;justify-content:center;margin-bottom:var(--s8);}
 
