@@ -310,8 +310,8 @@ input,textarea,select{font:inherit;color:inherit;}
   .hero{min-height:0;}
 
   /* Mobile hero background colour blobs */
-  .hero::before{content:'';position:absolute;top:-40px;right:-40px;width:320px;height:320px;background:radial-gradient(circle,rgba(232,119,34,0.32) 0%,transparent 65%);pointer-events:none;z-index:0;}
-  .hero::after{content:'';position:absolute;bottom:-30px;left:-50px;width:280px;height:280px;background:radial-gradient(circle,rgba(10,90,140,0.22) 0%,transparent 65%);pointer-events:none;z-index:0;}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:260px;height:260px;background:radial-gradient(circle at top right,rgba(232,119,34,0.38) 0%,transparent 70%);pointer-events:none;z-index:0;}
+  .hero::after{content:'';position:absolute;bottom:-30px;left:-50px;width:260px;height:260px;background:radial-gradient(circle,rgba(10,90,140,0.2) 0%,transparent 65%);pointer-events:none;z-index:0;}
 
   /* Hero layout — left-aligned, dominant heading */
   .hero-inner{padding:36px var(--s5) 32px;align-items:flex-start;text-align:left;}
