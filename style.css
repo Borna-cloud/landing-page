@@ -100,8 +100,8 @@ input,textarea,select{font:inherit;color:inherit;}
 .btn-ghost{background:transparent;color:var(--text);border:1.5px solid rgba(0,0,0,0.2);border-radius:var(--r-full);}
 .btn-ghost:hover{border-color:var(--text);background:rgba(0,0,0,0.04);}
 
-.hero-trust{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;background:#fff;border:1px solid var(--divider);border-radius:var(--r-xl);padding:9px var(--s5);width:100%;box-shadow:var(--shadow-sm);}
-.ht-item{display:flex;align-items:center;gap:6px;padding:2px 14px;font-size:0.68rem;font-weight:600;color:var(--muted);}
+.hero-trust{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0;background:#fff;border:1px solid var(--divider);border-radius:var(--r-xl);padding:9px var(--s6);box-shadow:var(--shadow-sm);}
+.ht-item{display:flex;align-items:center;gap:6px;padding:2px 16px;font-size:0.68rem;font-weight:600;color:var(--muted);}
 .ht-item svg{color:var(--orange);flex-shrink:0;}
 .ht-item em{font-style:normal;color:var(--faint);font-weight:500;}
 .ht-divider{width:1px;height:18px;background:var(--divider);flex-shrink:0;}
