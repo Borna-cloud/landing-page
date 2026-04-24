@@ -306,9 +306,9 @@ input,textarea,select{font:inherit;color:inherit;}
 @media(max-width:600px){
   .nav-links{display:none;}
   .nav-toggle{display:block;}
-  .hero-ctas{flex-direction:column;}
-  .hero-ctas .btn{justify-content:center;width:100%;}
-  .hero-heading{font-size:clamp(1.9rem,7.5vw,2.4rem);}
+  .hero-ctas{flex-direction:row;flex-wrap:wrap;}
+  .hero-ctas .btn{justify-content:center;flex:1;min-width:0;}
+  .hero-heading{font-size:clamp(2.4rem,9vw,3rem);}
   .section-title{font-size:clamp(1.5rem,5.8vw,2rem);}
   .form-row{grid-template-columns:1fr;}
   .form-card{padding:var(--s6);}
