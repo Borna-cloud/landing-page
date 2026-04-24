@@ -306,9 +306,17 @@ input,textarea,select{font:inherit;color:inherit;}
 @media(max-width:600px){
   .nav-links{display:none;}
   .nav-toggle{display:block;}
-  .hero-ctas{flex-direction:row;gap:var(--s3);}
-  .hero-ctas .btn{flex:1;justify-content:center;padding:0.75rem 1rem;font-size:0.82rem;}
-  .hero-heading{font-size:clamp(2.2rem,8.5vw,2.8rem);}
+
+  /* Hero — Wealthsimple-style: dominant heading, single primary CTA */
+  .hero-inner{padding-top:clamp(48px,10vw,80px);padding-bottom:clamp(40px,8vw,64px);}
+  .hero-heading{font-size:clamp(2.6rem,10vw,3.4rem);margin-bottom:var(--s4);}
+  .hero-sub{font-size:0.92rem;margin-bottom:var(--s6);}
+  .hero-ctas{flex-direction:column;gap:var(--s3);width:100%;}
+  .hero-ctas .btn-dark{width:100%;justify-content:center;padding:1rem;font-size:1rem;border-radius:14px;}
+  .hero-ctas .btn-ghost{background:none;border:none;color:var(--muted);font-size:0.85rem;padding:var(--s2) 0;text-decoration:underline;text-underline-offset:3px;width:100%;justify-content:center;}
+  .hero-ctas .btn-ghost:hover{background:none;color:var(--text);}
+  .hero-trust{display:none;}
+
   .section-title{font-size:clamp(1.5rem,5.8vw,2rem);}
   .form-row{grid-template-columns:1fr;}
   .form-card{padding:var(--s6);}
