@@ -288,8 +288,19 @@ input,textarea,select{font:inherit;color:inherit;}
   .book-p{max-width:100%;}
   .footer-inner{grid-template-columns:1fr;}
 }
+.hero-mobile-cards{display:none;}
+
 @media(max-width:720px){
   .hero-float{display:none;}
+  .hero-mobile-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;margin-bottom:var(--s6);}
+  .hmc-card{background:#fff;border-radius:16px;padding:16px;border:1px solid var(--divider);box-shadow:0 4px 16px rgba(0,0,0,0.06);text-align:left;}
+  .hmc-card--blue{border-top:3px solid #0a5a8c;}
+  .hmc-card--green{border-top:3px solid #16a34a;}
+  .hmc-card--orange{border-top:3px solid #e87722;}
+  .hmc-card--purple{border-top:3px solid #7c3aed;}
+  .hmc-card .hf-icon{width:34px;height:34px;border-radius:10px;margin-bottom:10px;}
+  .hmc-card .hf-label{font-size:0.8rem;}
+  .hmc-card .hf-sub{font-size:0.68rem;margin-top:5px;}
   .hero-trust{gap:var(--s2);}.ht-divider{display:none;}.ht-item{padding:4px 10px;}
   .calc-mini-grid{grid-template-columns:1fr;}
   .calc-row-2{grid-template-columns:1fr;}
