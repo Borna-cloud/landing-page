@@ -307,7 +307,7 @@ input,textarea,select{font:inherit;color:inherit;}
   .nav-links{display:none;}
   .nav-toggle{display:block;}
   .guardian-logo{height:40px;}
-  .hero{min-height:0;}
+  .hero{min-height:0;border-bottom:none;}
 
   /* Mobile hero background colour blobs */
   .hero::before{content:'';position:absolute;top:0;right:0;width:260px;height:260px;background:radial-gradient(circle at top right,rgba(232,119,34,0.38) 0%,transparent 70%);pointer-events:none;z-index:0;}
