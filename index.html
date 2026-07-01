@@ -8,22 +8,16 @@
   <meta property="og:title" content="Save $310,000 on Your Mortgage — Guardian Mortgages" />
   <meta property="og:description" content="Most people compare rates. Few compare strategies. Book a free 15-minute call to see your exact number." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://guardianmortgages.ca/" />
-  <meta property="og:image" content="https://guardianmortgages.ca/img-toronto-skyline.jpg" />
-  <link rel="canonical" href="https://guardianmortgages.ca/" />
+  <meta property="og:url" content="https://guardian-ayme.vercel.app/" />
+  <meta property="og:image" content="https://guardian-ayme.vercel.app/hero-home.jpg" />
+  <link rel="canonical" href="https://guardian-ayme.vercel.app/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
-  <script>
-    if (new URLSearchParams(window.location.search).get('capture') === 'desktop') {
-      document.documentElement.classList.add('desktop-capture');
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" defer></script>
 </head>
 <body>
 
@@ -425,7 +419,7 @@
         <p class="faq-sub">No jargon. Just straight answers. If you don&rsquo;t see yours here, I&rsquo;ll cover it on our call.</p>
         <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary faq-cta">Get my free review &rarr;</a>
       </div>
-      <ul style="list-style:none;padding:0;margin:0;">
+      <ul id="faqMainList" style="list-style:none;padding:0;margin:0;">
 
         <li class="faq-item">
           <button type="button" class="faq-q" aria-expanded="false" aria-controls="faq-a-1">What exactly is the AYME strategy?</button>
@@ -551,144 +545,7 @@
     </div>
   </footer>
 
-  <script>
-  // AYME Chart
-  (function() {
-    var tradBal = [750000,737811,725068,711745,697816,683252,668026,652107,635464,618063,599871,580850,560964,540174,518437,495710,471950,447108,421136,393982,365593,335911,304879,272435,238514,203050,165971,127206,86676,44302,0];
-    var aymeBal = [750000,705953,659213,609614,556983,501133,441868,378979,312245,241429,166283,86542,1925,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    var labels = [];
-    for (var i = 0; i <= 30; i++) { labels.push(String(i)); }
 
-    var gridColor  = 'rgba(0,0,0,0.05)';
-    var tickColor  = 'rgba(0,0,0,0.4)';
-    var titleColor = 'rgba(0,0,0,0.55)';
-
-    var ctx = document.getElementById('aymeChart');
-    var chart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Traditional 4.50%',
-            data: new Array(31).fill(null),
-            borderColor: 'rgba(150,158,172,0.65)',
-            backgroundColor: 'rgba(176,184,196,0.10)',
-            fill: true, tension: 0.35, cubicInterpolationMode: 'monotone', pointRadius: 0, borderWidth: 2
-          },
-          {
-            label: 'AYME 5.95%',
-            data: new Array(31).fill(null),
-            borderColor: '#F47920',
-            backgroundColor: 'rgba(244,121,32,0.09)',
-            fill: true, tension: 0.35, cubicInterpolationMode: 'monotone', pointRadius: 0, borderWidth: 2.5
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: { duration: 0 },
-        layout: { padding: { left: 12 } },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: '#fff',
-            borderColor: 'rgba(0,0,0,0.08)',
-            borderWidth: 1,
-            titleColor: '#111827',
-            bodyColor: '#6B7280',
-            padding: 10,
-            animation: { duration: 80 },
-            callbacks: {
-              label: function(c) {
-                if (c.parsed.y === null || c.parsed.y === 0) return c.dataset.label + ': Paid off';
-                return c.dataset.label + ': $' + Math.round(c.parsed.y).toLocaleString();
-              }
-            }
-          }
-        },
-        scales: {
-          y: {
-            beginAtZero: true, max: 800000,
-            grid: { color: gridColor },
-            ticks: { color: tickColor, font: { size: 11, family: "'DM Sans', sans-serif" }, callback: function(v) { return v === 0 ? '$0' : '$' + Math.round(v/1000) + 'K'; } },
-            title: { display: true, text: 'Balance owing', color: titleColor, font: { size: 12, family: "'DM Sans', sans-serif", weight: '600' } }
-          },
-          x: {
-            grid: { display: false },
-            ticks: { color: tickColor, font: { size: 11, family: "'DM Sans', sans-serif" }, maxRotation: 0 },
-            title: { display: true, text: 'Years', color: titleColor, font: { size: 12, family: "'DM Sans', sans-serif", weight: '600' } }
-          }
-        },
-        interaction: { intersect: false, mode: 'index' }
-      }
-    });
-
-    chart.data.datasets[0].data = tradBal.slice();
-    chart.data.datasets[1].data = aymeBal.slice();
-
-    var clipProgress = 0;
-    var clipPlugin = {
-      id: 'clipReveal',
-      beforeDatasetsDraw: function(ch) {
-        var area = ch.chartArea;
-        var ctx2 = ch.ctx;
-        var revealX = area.left + (area.right - area.left) * clipProgress;
-        ctx2.save();
-        ctx2.beginPath();
-        ctx2.rect(area.left, area.top - 10, revealX - area.left, area.bottom - area.top + 20);
-        ctx2.clip();
-      },
-      afterDatasetsDraw: function(ch) { ch.ctx.restore(); }
-    };
-    Chart.register(clipPlugin);
-    chart.update('none');
-
-    var DURATION = 2200;
-    var startTime = null;
-    function easeInOutCubic(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
-    function drawFrame(ts) {
-      if (!startTime) startTime = ts;
-      var elapsed = ts - startTime;
-      var progress = Math.min(elapsed / DURATION, 1);
-      clipProgress = easeInOutCubic(progress);
-      chart.draw();
-      if (progress < 1) {
-        requestAnimationFrame(drawFrame);
-      } else {
-        clipProgress = 1; chart.draw();
-        setTimeout(function() {
-          var results = document.getElementById('aymeRes');
-          if (results) results.classList.add('show');
-        }, 200);
-      }
-    }
-
-    var triggered = false;
-    function checkScroll() {
-      if (triggered) return;
-      var el = document.querySelector('.ayme-chart-section');
-      if (!el) return;
-      var rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85) {
-        triggered = true;
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          // Skip animation — reveal chart immediately
-          clipProgress = 1; chart.draw();
-          setTimeout(function() {
-            var results = document.getElementById('aymeRes');
-            if (results) results.classList.add('show');
-          }, 0);
-        } else {
-          setTimeout(function() { requestAnimationFrame(drawFrame); }, 300);
-        }
-      }
-    }
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    checkScroll();
-  })();
-  </script>
 
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-cta" id="stickyCta">
@@ -706,14 +563,7 @@
       </button>
     </div>
     <div class="faq-sheet-body">
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-1">What exactly is the AYME strategy?</button><div class="faq-a" id="sfaq-a-1" role="region" style="display:none;">AYME stands for All Your Money Earnings. It&rsquo;s a banking structure that lets the cash sitting in your chequing account work against your mortgage balance daily &mdash; without paying a dollar more per month.</div></li>
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-2">Do I have to switch banks or break my mortgage?</button><div class="faq-a" id="sfaq-a-2" role="region" style="display:none;">Not necessarily. The AYME structure requires an all-in-one mortgage product. I&rsquo;ll tell you exactly whether switching makes sense and whether the interest savings outweigh the transition costs.</div></li>
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-3">My rate is already low &mdash; why would I take a higher one?</button><div class="faq-a" id="sfaq-a-3" role="region" style="display:none;">Because your rate isn&rsquo;t what determines how much interest you pay &mdash; your structure is. The chart on this page shows a real $750K example where 5.95% beats 4.50% by $310,000.</div></li>
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-4">Is this only for people buying a new home?</button><div class="faq-a" id="sfaq-a-4" role="region" style="display:none;">No &mdash; some of the biggest opportunities are for people already mid-mortgage, especially approaching renewal. We can model AYME whether you&rsquo;re buying, renewing, or refinancing.</div></li>
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-5">Why doesn&rsquo;t my bank tell me about this?</button><div class="faq-a" id="sfaq-a-5" role="region" style="display:none;">A traditional 30-year mortgage on $750K generates ~$610,000 in interest for the bank. As an independent agent, I work for you &mdash; not the lender.</div></li>
-        <li class="faq-item"><button type="button" class="faq-q" aria-expanded="false" aria-controls="sfaq-a-6">What does the free 15-minute review involve?</button><div class="faq-a" id="sfaq-a-6" role="region" style="display:none;">A quick call where I look at your mortgage balance, rate, and monthly cash. I&rsquo;ll show you exact numbers: years saved, interest kept, transition cost. No paperwork, no commitment.</div></li>
-      </ul>
+      <ul id="faqSheetList" style="list-style:none;padding:0;margin:0;"></ul>
     </div>
   </div>
 

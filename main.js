@@ -262,63 +262,163 @@ if (hiwCards && hiwDots.length) {
 
 // ── Show sticky CTA after hero scrolls out ────────────────────────────────────
 const stickyCta = document.getElementById('stickyCta');
-const hero      = document.querySelector('.hero');
+const hero      = document.querySelector('.g-hero-split');
 const heroObs   = new IntersectionObserver(entries => {
   stickyCta.classList.toggle('visible', !entries[0].isIntersecting);
 }, { threshold: 0 });
 if (hero) heroObs.observe(hero);
 
-// ── Hero house drag-to-rotate ─────────────────────────────────────────────────
-(function () {
-  const el = document.getElementById('heroHouse');
-  if (!el || prefersReducedMotion) return;
+// Deduplicate FAQ: populate mobile sheet from main list (edit only once)
+(function populateMobileFaq() {
+  const mainList = document.getElementById('faqMainList');
+  const sheetList = document.getElementById('faqSheetList');
+  if (mainList && sheetList) {
+    const clone = mainList.cloneNode(true);
+    // Assign unique ids/aria to cloned answers so getElementById works correctly
+    clone.querySelectorAll('.faq-a').forEach((div, i) => {
+      const newId = 'sfaq-a-' + (i + 1);
+      div.id = newId;
+    });
+    clone.querySelectorAll('.faq-q').forEach((btn, i) => {
+      btn.setAttribute('aria-controls', 'sfaq-a-' + (i + 1));
+    });
+    sheetList.innerHTML = clone.innerHTML;
+  }
+})();
 
-  let dragging = false;
-  let startX = 0, startY = 0;
-  let rotY = 0, rotX = 0;
-  const PERSP = 700;
+// ── AYME Chart ───────────────────────────────────────────────────────────────
+(function() {
+  var tradBal = [750000,737811,725068,711745,697816,683252,668026,652107,635464,618063,599871,580850,560964,540174,518437,495710,471950,447108,421136,393982,365593,335911,304879,272435,238514,203050,165971,127206,86676,44302,0];
+  var aymeBal = [750000,705953,659213,609614,556983,501133,441868,378979,312245,241429,166283,86542,1925,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  var labels = [];
+  for (var i = 0; i <= 30; i++) { labels.push(String(i)); }
 
-  function setTransform() {
-    el.style.transform = `perspective(${PERSP}px) rotateY(${rotY}deg) rotateX(${rotX}deg)`;
+  var gridColor  = 'rgba(0,0,0,0.05)';
+  var tickColor  = 'rgba(0,0,0,0.4)';
+  var titleColor = 'rgba(0,0,0,0.55)';
+
+  var ctx = document.getElementById('aymeChart');
+  var chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Traditional 4.50%',
+          data: new Array(31).fill(null),
+          borderColor: 'rgba(150,158,172,0.65)',
+          backgroundColor: 'rgba(176,184,196,0.10)',
+          fill: true, tension: 0.35, cubicInterpolationMode: 'monotone', pointRadius: 0, borderWidth: 2
+        },
+        {
+          label: 'AYME 5.95%',
+          data: new Array(31).fill(null),
+          borderColor: '#F47920',
+          backgroundColor: 'rgba(244,121,32,0.09)',
+          fill: true, tension: 0.35, cubicInterpolationMode: 'monotone', pointRadius: 0, borderWidth: 2.5
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 0 },
+      layout: { padding: { left: 12 } },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#fff',
+          borderColor: 'rgba(0,0,0,0.08)',
+          borderWidth: 1,
+          titleColor: '#111827',
+          bodyColor: '#6B7280',
+          padding: 10,
+          animation: { duration: 80 },
+          callbacks: {
+            label: function(c) {
+              if (c.parsed.y === null || c.parsed.y === 0) return c.dataset.label + ': Paid off';
+              return c.dataset.label + ': $' + Math.round(c.parsed.y).toLocaleString();
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true, max: 800000,
+          grid: { color: gridColor },
+          ticks: { color: tickColor, font: { size: 11, family: "'DM Sans', sans-serif" }, callback: function(v) { return v === 0 ? '$0' : '$' + Math.round(v/1000) + 'K'; } },
+          title: { display: true, text: 'Balance owing', color: titleColor, font: { size: 12, family: "'DM Sans', sans-serif", weight: '600' } }
+        },
+        x: {
+          grid: { display: false },
+          ticks: { color: tickColor, font: { size: 11, family: "'DM Sans', sans-serif" }, maxRotation: 0 },
+          title: { display: true, text: 'Years', color: titleColor, font: { size: 12, family: "'DM Sans', sans-serif", weight: '600' } }
+        }
+      },
+      interaction: { intersect: false, mode: 'index' }
+    }
+  });
+
+  chart.data.datasets[0].data = tradBal.slice();
+  chart.data.datasets[1].data = aymeBal.slice();
+
+  var clipProgress = 0;
+  var clipPlugin = {
+    id: 'clipReveal',
+    beforeDatasetsDraw: function(ch) {
+      var area = ch.chartArea;
+      var ctx2 = ch.ctx;
+      var revealX = area.left + (area.right - area.left) * clipProgress;
+      ctx2.save();
+      ctx2.beginPath();
+      ctx2.rect(area.left, area.top - 10, revealX - area.left, area.bottom - area.top + 20);
+      ctx2.clip();
+    },
+    afterDatasetsDraw: function(ch) { ch.ctx.restore(); }
+  };
+  Chart.register(clipPlugin);
+  chart.update('none');
+
+  var DURATION = 2200;
+  var startTime = null;
+  function easeInOutCubic(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+  function drawFrame(ts) {
+    if (!startTime) startTime = ts;
+    var elapsed = ts - startTime;
+    var progress = Math.min(elapsed / DURATION, 1);
+    clipProgress = easeInOutCubic(progress);
+    chart.draw();
+    if (progress < 1) {
+      requestAnimationFrame(drawFrame);
+    } else {
+      clipProgress = 1; chart.draw();
+      setTimeout(function() {
+        var results = document.getElementById('aymeRes');
+        if (results) results.classList.add('show');
+      }, 200);
+    }
   }
 
-  function onStart(x, y) {
-    dragging = true;
-    startX = x; startY = y;
-    el.classList.add('is-dragging');
-    el.style.transition = 'none';
+  var triggered = false;
+  function checkScroll() {
+    if (triggered) return;
+    var el = document.querySelector('.ayme-chart-section');
+    if (!el) return;
+    var rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      triggered = true;
+      if (prefersReducedMotion) {
+        // Skip animation — reveal chart immediately
+        clipProgress = 1; chart.draw();
+        setTimeout(function() {
+          var results = document.getElementById('aymeRes');
+          if (results) results.classList.add('show');
+        }, 0);
+      } else {
+        setTimeout(function() { requestAnimationFrame(drawFrame); }, 300);
+      }
+    }
   }
-
-  function onMove(x, y) {
-    if (!dragging) return;
-    rotY += (x - startX) * 0.45;
-    rotX -= (y - startY) * 0.28;
-    rotX = Math.max(-40, Math.min(40, rotX));
-    startX = x; startY = y;
-    setTransform();
-  }
-
-  function onEnd() {
-    if (!dragging) return;
-    dragging = false;
-    el.classList.remove('is-dragging');
-    el.style.transition = 'transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1)';
-    rotY = 0; rotX = 0;
-    setTransform();
-    setTimeout(() => { el.style.transition = ''; }, 750);
-  }
-
-  el.addEventListener('mousedown', e => { onStart(e.clientX, e.clientY); e.preventDefault(); });
-  document.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
-  document.addEventListener('mouseup', onEnd);
-
-  el.addEventListener('touchstart', e => {
-    const t = e.touches[0];
-    onStart(t.clientX, t.clientY);
-  }, { passive: true });
-  el.addEventListener('touchmove', e => {
-    const t = e.touches[0];
-    onMove(t.clientX, t.clientY);
-  }, { passive: true });
-  el.addEventListener('touchend', onEnd);
-}());
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  checkScroll();
+})();
