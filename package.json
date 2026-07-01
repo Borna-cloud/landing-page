@@ -1,0 +1,9 @@
+{
+  "name": "mortgage-strategy-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static mortgage strategy website for Borna Alavi Parsi and Guardian Mortgages.",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File scripts/start.ps1"
+  }
+}
