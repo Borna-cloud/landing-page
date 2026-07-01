@@ -6,7 +6,7 @@
   <title>Save $310,000 on Your Mortgage | Borna Alavi Parsi — Guardian Mortgages Toronto</title>
   <meta name="description" content="Most homeowners overpay by $310,000. Borna Alavi Parsi is a licensed mortgage agent at Guardian Mortgages helping GTA clients restructure — same income, same payments, 17 years sooner." />
   <meta property="og:title" content="Save $310,000 on Your Mortgage — Guardian Mortgages" />
-  <meta property="og:description" content="Most people compare rates. Few compare strategies. Book a free 15-minute call to see your exact savings." />
+  <meta property="og:description" content="Most people compare rates. Few compare strategies. Book a free 15-minute call to see your exact number." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://guardianmortgages.ca/" />
   <meta property="og:image" content="https://guardianmortgages.ca/img-toronto-skyline.jpg" />
@@ -14,9 +14,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=21" />
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
   <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   <script>
@@ -37,23 +37,19 @@
       </a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#approach">The Approach</a>
+        <a href="#faq" data-faq-trigger>FAQ</a>
         <a href="#about">About</a>
-        <a href="#book">Contact</a>
+        <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn-nav">Get my free review</a>
       </nav>
-      <div class="nav-actions">
-        <a href="#book" class="btn-nav btn-nav--ghost">Get in touch</a>
-        <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn-nav btn-nav--primary">Book a Call</a>
-      </div>
       <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileMenu" id="navToggle">
         <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
       </button>
     </div>
     <div class="mobile-menu" id="mobileMenu">
       <a href="#approach" class="mobile-link">The Approach</a>
+      <a href="#faq" class="mobile-link" data-faq-trigger>FAQ</a>
       <a href="#about" class="mobile-link">About</a>
-      <a href="#book" class="mobile-link">Contact</a>
-      <a href="#book" class="mobile-link">Get in touch</a>
-      <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="mobile-link mobile-cta">Book a Call</a>
+      <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="mobile-link mobile-cta">Get my free review</a>
     </div>
   </header>
 
@@ -88,7 +84,7 @@
     </div>
 
     <div class="g-hero-right">
-      <img src="public/hero-home.jpg" alt="Modern open-concept kitchen with white marble island, warm oak cabinetry, and floor-to-ceiling windows overlooking trees" class="g-hero-photo" />
+      <img src="hero-home.jpg" alt="Modern open-concept kitchen with white marble island, warm oak cabinetry, and floor-to-ceiling windows overlooking trees" class="g-hero-photo" />
       <div class="g-hero-data-card" aria-hidden="true">
         <div class="g-hdc-stats">
           <div class="g-hdc-stat">
@@ -105,55 +101,36 @@
     </div>
   </section>
 
-
-
-
-
-
   <!-- THE AYME STRATEGY -->
   <section class="ayme-section">
 
-    <!-- Pain Agitation: What most homeowners are doing wrong -->
+    <!-- Heading: centered on light oat background, no dark band -->
     <div class="ayme-intro fade-up">
-      <div class="ayme-intro-text">
-        <div class="section-tag">The silent mistake</div>
-        <h2 class="ayme-heading">Your cash is making the bank rich — while your mortgage stays stuck.</h2>
-        <p class="ayme-pain">Every month your income arrives. Most of it sits in your account doing nothing for you. Meanwhile your mortgage balance barely moves and interest keeps compounding. This is the hidden tax most homeowners never see.</p>
-      </div>
-      <img src="public/ayme-premium.jpg" alt="Cinematic premium layered illustration of idle cash and mortgage pain — sophisticated finance aesthetic with depth" class="ayme-intro-image" />
+      <h2 class="ayme-heading">This is built for you if&hellip;</h2>
+      <p class="ayme-pain">You own a home in the GTA. You have cash flow &mdash; savings, salary, or business income. And you&rsquo;re not interested in giving your bank a six-figure bonus.</p>
     </div>
 
-    <div class="ayme-cards-header">
-      <span>The numbers no one shows you</span>
-    </div>
-
-    <!-- Pain stats -->
+    <!-- Three separate plan cards — like Wealthsimple Core / Premium / Generation -->
     <div class="ayme-cards-row">
 
       <div class="ayme-card fade-up">
-        <div class="ac-eyebrow">The Hidden Trap</div>
         <div class="ac-num"><span class="count-up" data-target="400" data-prefix="$" data-suffix="B+">$400B+</span></div>
-        <div class="ac-label">Canadian cash sits idle in accounts every month.<br>Banks collect interest on it while you pay full price on your mortgage.</div>
+        <div class="ac-label">sitting in Canadian bank accounts, compounding for them&nbsp;&mdash; not you</div>
       </div>
 
       <div class="ayme-card ayme-card--feat fade-up">
-        <div class="ac-eyebrow">The Annual Penalty</div>
+        <div class="ac-eyebrow">Zero extra payments</div>
         <div class="ac-num"><span class="count-up" data-target="8000" data-prefix="$">$8,000</span></div>
-        <div class="ac-label">Extra interest paid every year on a typical balance.<br>Your own cash isn't offsetting what you owe.</div>
+        <div class="ac-label">saved per $100K of mortgage balance, every single year</div>
       </div>
 
       <div class="ayme-card fade-up">
-        <div class="ac-eyebrow">The Lifetime Loss</div>
-        <div class="ac-num">$310K</div>
-        <div class="ac-label">Wasted in unnecessary interest over 30 years.<br>Money that quietly disappears from your family on a $750K mortgage.</div>
+        <div class="ac-num"><span class="count-up" data-target="310" data-prefix="$" data-suffix="K">$310K</span></div>
+        <div class="ac-label">total interest kept on a $750K mortgage over its full term</div>
       </div>
 
     </div>
 
-    <div class="pain-cta">
-      <p>This is what most people accept without question.</p>
-      <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="g-btn g-btn-orange g-btn-lg">Get my exact savings projection →</a>
-    </div>
 
   </section>
 
@@ -205,7 +182,7 @@
           <button class="hiw-dot" data-slide="2" aria-label="Card 3"></button>
         </div>
 
-        <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary hiw-cta">Run the numbers on my mortgage →</a>
+        <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary hiw-cta">Show me my number &rarr;</a>
       </div>
     </div>
   </section>
@@ -345,7 +322,7 @@
 
     <div class="ayme-chart-inner">
       <div class="section-tag">The proof</div>
-      <h2 class="h2">A higher rate. The same payments.<br>17 years faster — and <span class="highlight">$310K cheaper</span>.</h2>
+      <h2 class="h2">A higher rate. The same payments. 17 years faster &mdash; and $310K cheaper.</h2>
 
       <div class="ayme-legend">
         <span><span class="leg-box" style="background:#b0b8c4;"></span>Traditional mortgage @ 4.50% fixed</span>
@@ -373,11 +350,11 @@
       </div>
 
       <div class="ayme-results" id="aymeRes">
-        <div class="ayme-rc highlight">
+        <div class="ayme-rc">
           <div class="ayme-rn g">17 years</div>
           <div class="ayme-rl">debt-free sooner</div>
         </div>
-        <div class="ayme-rc highlight">
+        <div class="ayme-rc">
           <div class="ayme-rn g">$310K</div>
           <div class="ayme-rl">total interest saved</div>
         </div>
@@ -387,11 +364,7 @@
         </div>
       </div>
 
-      <div class="chart-callout">
-        <strong>That’s real money back in your pocket.</strong> The chart shows exactly when AYME pulls ahead — and never looks back.
-      </div>
-
-      <p class="chart-bab">Grey = what your bank schedules. Orange = the path they rarely show you. The gap = hundreds of thousands staying in <strong>your</strong> family instead of theirs.</p>
+      <p class="chart-bab">Grey is what your bank has you scheduled for. Orange is the alternative they haven&rsquo;t shown you. Every year that gap stays open is money leaving your family&rsquo;s pocket.</p>
 
     </div>
   </section>
@@ -400,7 +373,7 @@
   <section class="midcta-section">
     <div class="midcta-inner">
       <div class="midcta-copy">
-        <h2 class="midcta-heading">See exactly what you’re leaving on the table — in 15 minutes.</h2>
+        <h2 class="midcta-heading">Find out your exact number in 15 minutes.</h2>
         <p class="midcta-sub">Not a rough estimate. Your mortgage, your cash flow, your savings &mdash; run through the actual model. You leave knowing exactly what you&rsquo;re losing and how to stop it.</p>
       </div>
       <div class="midcta-proof">
@@ -408,7 +381,7 @@
         <div class="midcta-item"><span class="midcta-check"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span> Your exact payoff date vs. the AYME path</div>
         <div class="midcta-item"><span class="midcta-check"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,7 6,11 12,3"/></svg></span> Whether AYME is right for you &mdash; honest answer, no pressure</div>
       </div>
-      <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="midcta-btn">Get my exact projection →</a>
+      <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="midcta-btn">Show me my number &rarr;</a>
     </div>
   </section>
 
@@ -437,7 +410,7 @@
         <p class="about-lead">Two families. Similar homes, similar incomes, same market &mdash; completely different outcomes. One spent years under the weight of their mortgage. The other used equity to build wealth. The difference was almost never the rate. It was the structure.</p>
         <p class="about-p">That&rsquo;s what pulled me to Guardian Mortgages. When a mortgage is set up the right way, it stops being something you survive and starts being something that works for you. That&rsquo;s what I&rsquo;m here to show you &mdash; in 15 minutes, with your actual numbers.</p>
         <div class="about-action-row">
-          <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary about-cta">See my personalized numbers →</a>
+          <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary about-cta">Show me my number &rarr;</a>
         </div>
       </div>
     </div>
@@ -449,7 +422,8 @@
       <div class="faq-left">
         <div class="section-tag">Common questions</div>
         <h2 class="faq-heading">Everything you&rsquo;d want to know before booking.</h2>
-        <p class="faq-sub">If you don&rsquo;t find your answer here, I&rsquo;ll cover it in our 15-minute call.</p>
+        <p class="faq-sub">No jargon. Just straight answers. If you don&rsquo;t see yours here, I&rsquo;ll cover it on our call.</p>
+        <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="btn btn-primary faq-cta">Get my free review &rarr;</a>
       </div>
       <ul style="list-style:none;padding:0;margin:0;">
 
@@ -513,7 +487,7 @@
         <p class="book-lead">Every month without this structure, it&rsquo;s working. Send me your details and I&rsquo;ll show you exactly what you&rsquo;re losing &mdash; and how to stop it.</p>
       </div>
       <div class="form-card">
-        <h3 class="form-title">Get your personalized savings projection</h3>
+        <h3 class="form-title">Get your free mortgage analysis</h3>
         <form class="book-form" id="bookForm" action="https://formspree.io/f/xzdyjrzw" method="POST" novalidate>
           <div class="form-row">
             <div class="form-group">
@@ -536,7 +510,7 @@
             <textarea id="message" name="message" rows="3" placeholder="Tell me about your situation..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;">
-            <span id="btnText">Show my savings projection</span>
+            <span id="btnText">Show me my number</span>
             <svg id="btnArrow" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <p class="form-error-network" id="formNetworkError" role="alert">Something went wrong. Please try again or <a href="mailto:borna@guardianmortgages.ca" style="color:inherit;text-decoration:underline">email me directly</a>.</p>
@@ -572,6 +546,7 @@
         <p class="footer-copy">&copy; 2026 Borna Alavi Parsi. All rights reserved.</p>
         <p class="footer-disc">Mortgage services are subject to lender approval and qualification (OAC). Rates are subject to change without notice. This website is for informational purposes only and does not constitute a mortgage commitment or guarantee of financing. All mortgage products are provided through 2764826 Ontario Ltd. o/a Guardian Mortgages Mortgage Architects, licensed by FSRA.</p>
         <a href="https://mbsweblist.fsco.gov.on.ca/ShowLicence.aspx?M25002439~" target="_blank" rel="noopener" class="footer-verify">Verify licence on FSRA &rarr;</a>
+        <p class="footer-photo-credit">Photography by <a href="https://unsplash.com/@dillonkydd" target="_blank" rel="noopener">Dillon Kydd</a>, <a href="https://unsplash.com/@bryanreinhart" target="_blank" rel="noopener">Bryan Reinhart</a>, and <a href="https://unsplash.com/@whalercm" target="_blank" rel="noopener">Callum Parker</a> via Unsplash.</p>
       </div>
     </div>
   </footer>
@@ -717,7 +692,7 @@
 
   <!-- STICKY MOBILE CTA -->
   <div class="sticky-cta" id="stickyCta">
-    <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="sticky-cta-btn">Get my savings projection →</a>
+    <a href="https://guardianmortgages.zohobookings.ca/#/guardianmortgages" target="_blank" rel="noopener" class="sticky-cta-btn">Show me my number &rarr;</a>
   </div>
 
   <!-- FAQ bottom sheet (mobile only) -->

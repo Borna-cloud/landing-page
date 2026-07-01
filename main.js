@@ -7,8 +7,6 @@ window.addEventListener('scroll', () => {
 // Reduced motion preference (read once, used everywhere)
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// Note: Hero stats are currently static in the data card (no animated counters needed in current design)
-
 // ── Mobile menu ───────────────────────────────────────────────────────────────
 const navToggle  = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
